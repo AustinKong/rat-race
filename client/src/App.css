@@ -1,10 +1,25 @@
+/* Ensure no white space at the top of the page */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full viewport height */
+}
+
 .all {
   background-color: #ffc579;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
 
 .title {
   text-align: center;
+  font-size: 50px;
+  margin: 0; /* Remove margin at the top */
+  padding: 10px 0; /* Optional padding for spacing */
 }
+
+
+
 
 /* Container for the three divs */
 .container {
@@ -22,11 +37,19 @@
   height: 90%;                   /* Set height */
   display: flex;                 /* Center content inside the div */
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;  
   background-color: #007bff;     /* Background color */
   color: white;                  /* Text color */
   font-size: 16px;               /* Font size */
   border-radius: 8px;            /* Rounded corners */
+  padding:10px;
+}
+
+.ruleBox{
+  width:500px;
+  height:100px;
+  display: flex; 
+  background-color: green;
 }
 
 .right {
@@ -67,13 +90,39 @@
   margin: 0;                     /* Remove margin to avoid gaps */
 }
 
+.center-content-text {
+  display: flex;
+  color: black;
+}
+
 /* Text Area inside center-content */
 .text-area {
-  width: 100%;                   /* Full width */
+  width: 95%;                    /* Full width */
   height: 100px;
-  margin: 10px 0;                /* Add margin for spacing */
+  margin: 5px;                   /* Add margin for spacing */
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   font-size: 16px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  display: flex;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #0056b3;
 }
