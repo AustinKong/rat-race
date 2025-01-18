@@ -1,7 +1,9 @@
 .leaderboard {
   max-width: 900px;
   margin: 32px auto 0 auto;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: #0077B5;
+  color:white;
   padding: 8px 24px 32px 24px;
   border-radius: 8px;
   border: 1px solid lightgray;
