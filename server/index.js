@@ -63,8 +63,11 @@ app.post('/api/next', (req, res) => {
 })
 
 app.get('/api/leaderboard', (req, res) => {
-  db.all('SELECT * FROM player_records SORT_BY score LIMIT 10', [], (err, rows) => {
-    if (err) res.status(500).json({ error: err.message });
+  db.all('SELECT * FROM player_records ORDER BY score DESC LIMIT 10', [], (err, rows) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ error: err.message });
+    }
     else res.status(200).json(rows);
   })
 })
@@ -72,7 +75,7 @@ app.get('/api/leaderboard', (req, res) => {
 app.post('/api/leaderboard', (req, res) => {
   try {
     const data = req.body;
-    db.run('INSERT INTO player_records (username, score, time_taken) VALUES (?, ?)', [data.username, data.score, data.time_taken], (err) => {
+    db.run('INSERT INTO player_records (username, score, time_taken) VALUES (?, ?, ?)', [data.username, data.score, data.time_taken], (err) => {
       res.status(500);
     });
     res.status(200).json({ username: data.username, score: data.score, time_taken: data.time_taken });
