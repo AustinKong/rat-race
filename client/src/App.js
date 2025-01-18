@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import Leaderboard from './leaderboard/Leaderboard';
 
 const BACKEND_URL = "http://localhost:3000/api/";
 
@@ -45,11 +46,16 @@ function App() {
     .catch(error => console.log(error));
   }
 
+  if (false) {
+    return (
+      <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
+    )
+  }
+
   return (
     <div className="all">
-      <div className="title-container">
-        <h1 className="title">RatRace🐭</h1>
-      </div>
+      <h1 className="title">RatRace🐭</h1>
+  
       <div className="container">
           <div className="left">
             {rules.map((rule, index) => (
