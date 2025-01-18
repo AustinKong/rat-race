@@ -1,4 +1,4 @@
-const { validateWordInclusion } = require('./ruleHandlers');
+const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLetterInclusion, validatePalindromInclusion } = require('./ruleHandlers');
 const axios = require('axios');
 const {
   GoogleGenerativeAI,
@@ -6,6 +6,7 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
+const DEV_MODE = true;
 
 /* ------------------------------------------------------------------------ */
 
@@ -57,22 +58,42 @@ async function checkGrammar(text) {
 async function evaluateInput(input, rules) {
   const results = [];
 
-  // Checks for number of grammar issues
-  const matches = await checkGrammar(input);
-  results.push({ 
-    rule: { type: "grammarCheck", description: "Checks whether grammar is valid." },
-    valid: matches.length === 0
-  });
+  if (!DEV_MODE) {
+    // Checks for number of grammar issues
+    const matches = await checkGrammar(input);
+    results.push({ 
+      rule: { type: "grammarCheck", description: "Checks whether grammar is valid." },
+      valid: matches.length === 0
+    });
+
+    // Uses Gemini to check if the text fits in the context of a Linkedin post
+    const contextCheckResult = (await checkContext(input)).trim();
+    results.push({
+      rule: { type: "contextCheck", description: "Checks whether your text fits in the context of LinkedIn post." },
+      valid: contextCheckResult === "valid"
+    })
+  }
 
   // Checks for challenge rules
   rules.forEach(rule => {
     let isValid;
     switch (rule.type) {
+      case "intro":
+        isValid = validateIntro(input, rule);
+        break;
       case "wordInclusion":
         isValid = validateWordInclusion(input, rule);
         break;
+      case "sentenceInclusion":
+        isValid = validateSentenceInclusion(input, rule);
+        break;
+      case "letterInclusion":
+        isValid = validateAllLetterInclusion(input, rule);
+        break;
+      case "palindromeInclusion":
+        isValid = validatePalindromInclusion(input, rule);
       default:
-        isValid = true;
+        isValid = false;
     }
     results.push({
       rule,
@@ -80,14 +101,15 @@ async function evaluateInput(input, rules) {
     })
   })
 
-  // Uses Gemini to check if the text fits in the context of a Linkedin post
-  const contextCheckResult = (await checkContext(input)).trim();
-  results.push({
-    rule: { type: "contextCheck", description: "Checks whether your text fits in the context of LinkedIn post." },
-    valid: contextCheckResult === "valid"
-  })
-
-  return results;
+  // Keep only needed data
+  return results.map(r => {
+    return {
+      id: r.rule.id,
+      type: r.rule.type,
+      difficulty: r.rule.difficulty,
+      description: r.rule.description,
+      valid: r.valid
+  }});
 }
 
 module.exports = { evaluateInput }
