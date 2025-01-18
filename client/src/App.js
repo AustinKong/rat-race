@@ -15,7 +15,7 @@ function App() {
       <h1>React + Express + SQLite</h1>
       <ul>
         {data.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <li key={item.id}>Name: {item.username}, Score: {item.score}, Time: {item.time_taken} seconds</li>
         ))}
       </ul>
     </div>
