@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './style.css';
+import ratDancing from './rat-dancing.gif';
 import ratSpinning from './rat-spinning.gif';
 import sadMouse from './sad-mouse.gif';
 
@@ -65,6 +66,7 @@ const Leaderboard = ({ score, text }) => {
       <div className="horizontal-line" />
       <div className="name-submission">
         <div className="brainrot-images">
+          <img src={ratDancing} />
           <img src={ratSpinning} />
           <img src={sadMouse} />
         </div>

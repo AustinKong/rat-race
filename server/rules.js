@@ -313,16 +313,16 @@ const rules = [
     id: 204,
     type: "math",
     difficulty: 3,
-    description: "Your post must include the coefficient of x of this differentiation question - d/dx(17x^2 - 11x^2 + 17x - 5x + 9)",
-    number: 12
+    description: "Your post must include the coefficient of x of this differentiation question - d/dx(12x^2 - 5x + 9)",
+    number: 5
   },
 
   {
     id: 205,
     type: "math",
     difficulty: 3,
-    description: "Your post must include the constant of this differentiation question - d/dx(27x^4 + 8x - 5x^3 + 3 + 3x - 3x^2)",
-    number: 11
+    description: "Your post must include the constant of this differentiation question - d/dx(37x^3 - 20x^2 + 3x + 1)",
+    number: 3
   }, 
   {
     id: 206,
@@ -364,30 +364,17 @@ const rules = [
     id: 211,
     type: "wordInclusion",
     difficulty: 3,
-    description: "Your post must include the name of the philanthropist that paid for Chadwick Boseman's summer theatre program at the University of Oxford.",
-    words: ["denzel washington"]
+    description: "\"I think the greatest way to win the rat race is to give a false sense of our weaknesses and strengths\". Your post must include a quote from the book titled 'The Art of War' that supports this argument.",
+    words: ["appear weak when you are strong, and strong when you are weak"]
   },
   {
     id: 212,
     type: "wordInclusion",
     difficulty: 3,
-    description: "\"I think the greatest way to win the rat race is to give a false sense of our weaknesses and strengths\". Your post must include a quote from the book titled 'The Art of War' that supports this argument.",
-    words: ["appear weak when you are strong, and strong when you are weak"]
-  },
-  {
-    id: 213,
-    type: "wordInclusion",
-    difficulty: 3,
-    description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
-    words: ["richard branson"]
-  },
-  {
-    id: 214,
-    type: "wordInclusion",
-    difficulty: 3,
     description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
     words: ["richard branson"]
   }
+  
 
 ];
 
