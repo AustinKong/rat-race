@@ -20,13 +20,11 @@ function App() {
 
   return (
     <div className="all">
-      <h1 className="title">RatRace🐭</h1>
+      <h1 className="title">RatRace🐁🐭🪤</h1>
   
       <div className="container">
         <div className="left">
-          <div className="ruleBox">
-            box1
-          </div>
+          left
         </div>
   
         <div className="center">
