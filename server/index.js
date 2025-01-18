@@ -26,7 +26,7 @@ const db = new sqlite3.Database(`../database/${process.env.DB_NAME}`, (err) => {
 app.post('/api/evaluate', (req, res) => {
   try {
     const data = req.body;
-    evaluateInput(data.text, data.rules.map(rule => rules.find(r.id === rule)))
+    evaluateInput(data.text, data.rules.map(rule => rules.find(r => r.id === rule)))
       .then(result => res.status(200).json({ rules: result }));
   } catch (error) {
     console.error('Error parsing request body: ', error);

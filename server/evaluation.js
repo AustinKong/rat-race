@@ -64,6 +64,7 @@ async function evaluateInput(input, rules) {
     valid: matches.length > 0
   });
 
+  console.log(rules)
   // Checks for challenge rules
   rules.forEach(rule => {
     let isValid;

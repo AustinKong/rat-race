@@ -3,13 +3,20 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [text, setText] = useState("");
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/example')
-      .then((response) => setData(response.data))
-      .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post("http://localhost:3000/api/evaluate", {
+      text: text,
+      rules: [1] // Use rule 1 for now
+    }).then(result => console.log(result))
+    .catch(error => console.log(error))
+  }
 
   return (
     <div className="all">
@@ -23,10 +30,12 @@ function App() {
         <div className="center">
           <div className="center-content">
             <h2 className="center-content-text">Hustling for the cheese</h2>
-            <textarea className="text-area" placeholder="Enter your text here..."></textarea>
-            <div className="action-buttons">
-              <button className="post-button">Submit</button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <textarea className="text-area" placeholder="Enter your text here..." value={text} onChange={handleChange}></textarea>
+              <div className="action-buttons">
+                <button className="post-button" type="submit">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
   
