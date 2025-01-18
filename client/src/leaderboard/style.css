@@ -1,0 +1,70 @@
+.leaderboard {
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  background-color: #ffffff;
+  padding: 8px 24px 32px 24px;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  -moz-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+}
+
+.horizontal-line {
+  height: 0;
+  border-top: 1px solid lightgray;
+}
+
+.leaderboard-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+
+.button {
+  background-color: #0a66c2;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.score {
+  text-align: center;
+}
+
+.post {
+  padding: 0 16px;
+}
+
+.name-submission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.name-textbox {
+  width: 40vw;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.brainrot-images {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.brainrot-images > images {
+  width: 15vw;
+}

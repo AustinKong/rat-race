@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import Leaderboard from './leaderboard/Leaderboard';
 
 const BACKEND_URL = "http://localhost:3000/api/";
 
@@ -8,7 +9,7 @@ function App() {
   const [text, setText] = useState("");
   const [rules, setRules] = useState([]); // Some dummy rules for now
   const [health, setHealth] = useState(5);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(50);
 
   useEffect(() => {
     getNewRule();
@@ -45,35 +46,69 @@ function App() {
     .catch(error => console.log(error));
   }
 
+  if (false) {
+    return (
+      <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
+    )
+  }
+
   return (
     <div className="all">
-      <h1 className="title">RatRace🐁🐭🪤</h1>
+      <h1 className="title">RatRace🐭</h1>
   
       <div className="container">
-        <div className="left">
-          {rules.map((rule, index) => (
-            <div className="ruleBox" key={index}>
-              Difficulty: {rule.difficulty} <br/>
-              Description: {rule.description}
-            </div>
-          ))}
-        </div>
+          <div className="left">
+            {rules.map((rule, index) => (
+              <div className="ruleBox" key={index}>
+                <div className="ruleBoxHeader">
+                  Rule {index + 1}
+                </div>
+                <div className="ruleBoxDescription">
+                  {rule.description}
+                </div>
+              </div>
+            ))}
+          </div>
   
         <div className="center">
           <div className="center-content">
             <h2 className="center-content-text">Hustling for the cheese🪤</h2>
+            {/* <div className="gameStats">
+              Score: {score} <br/>
+              health: {health} <br/>
+            </div> */}
+
+              <div className="gameInfo">
+                <div className="gameScore">
+                  <p>Score: {score}🧀</p>
+                </div>
+
+                <div className="gameHealth">
+                  Health:
+                  <span style={{ marginLeft: "10px" }}>
+                    {Array.from({ length: health }, (_, index) => (
+                      <span key={index} style={{ fontSize: "20px", marginRight: "5px" }}>
+                        ❤️
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              </div>
+
+
             <form onSubmit={handleSubmit}>
               <textarea className="text-area" placeholder="Enter your text here..." value={text} onChange={handleChange}></textarea>
               <div className="action-buttons">
                 <button className="post-button" type="submit">Submit</button>
               </div>
+              
             </form>
           </div>
         </div>
   
         <div className="right">
-          Score: {score} <br/>
-          health: {health} <br/>
+          
+          
         </div>
       </div>
     </div>

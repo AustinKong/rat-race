@@ -6,16 +6,28 @@ html, body {
 }
 
 .all {
-  background-color: #ffc579;
+  /* background-color: #ffc579; */
+  background-color: #f4f2ee;
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
 }
 
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
+  width:280px;
   text-align: center;
   font-size: 50px;
   margin: 0; /* Remove margin at the top */
   padding: 10px 0; /* Optional padding for spacing */
+  background-color: #0077B5;
+  color: white;
+  border-radius: 10px;
+  
 }
 
 
@@ -35,23 +47,42 @@ html, body {
 .left {
   width: 500px;                  /* Set width */
   height: 90%;                   /* Set height */
-  display: flex;                 /* Center content inside the div */
-  justify-content: center;
-  align-items: flex-start;  
-  background-color: #007bff;     /* Background color */
+  display: flex;                 /* Flex container */
+  justify-content: flex-start;   /* Align children to the start horizontally */
+  align-items: flex-start;       /* Align children to the start vertically */
+  flex-direction: column;        /* Arrange children in a column */
+  gap: 8px;                      /* Add space between children */
+  /* background-color: #007bff;      */
   color: white;                  /* Text color */
   font-size: 16px;               /* Font size */
   border-radius: 8px;            /* Rounded corners */
-  padding: 10px;
-  flex-direction: column;
-  gap: 8px;
+  padding: 10px;                 /* Add padding inside the box */
 }
 
-.ruleBox{
-  width:500px;
-  height:100px;
-  display: flex; 
-  background-color: green;
+.ruleBox {
+  width: 500px;                /* Set box width */
+  border: 1px solid #4CAF50;   /* Add a green border */
+  border-radius: 8px;          /* Rounded corners */
+  overflow: hidden;            /* Prevent content overflow */
+  font-family: Arial, sans-serif;
+  margin-bottom: 10px;         /* Add spacing between boxes */
+}
+
+/* Header styling */
+.ruleBoxHeader {
+  background-color: #a8e6a8;   /* Slightly darker green */
+  color: #4CAF50;              /* Green text color */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Description styling */
+.ruleBoxDescription {
+  background-color: #dfffd6;   /* Light green background */
+  color: #000;                 /* Black text color */
+  font-size: 14px;
+  padding: 10px;
 }
 
 .right {
@@ -93,6 +124,28 @@ html, body {
 }
 
 .center-content-text {
+  display: flex;
+  color: black;
+}
+
+
+/* Container for Score and Health */
+.gameInfo {
+  display: flex;          /* Arrange children in a row */
+  align-items: center;    /* Align vertically */
+  gap: 30px;              /* Add space between score and health */
+}
+
+/* Score styling */
+.gameScore {
+  font-size: 30px;
+  display: flex;
+  color: black;
+}
+
+/* Health styling */
+.gameHealth {
+  font-size: 30px;
   display: flex;
   color: black;
 }
