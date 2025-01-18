@@ -373,6 +373,48 @@ const rules = [
     difficulty: 3,
     description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
     words: ["richard branson"]
+  },
+  {
+    id: 213,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include two of the number emojis - 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣",
+    emojis: ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+  },
+  {
+    id: 214,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include five 😁 emojis.",
+    emojis: ["😁"]
+  },
+  {
+    id: 215,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include 3 💡 emojis.",
+    emojis: ["💡"]
+  },
+  {
+    id: 215,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the word in the CAPTCHA image.",
+    emojis: ["hustle"]
+  },
+  {
+    id: 215,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the word in the CAPTCHA image.",
+    emojis: ["insights"]
+  },
+  {
+    id: 215,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the word in the CAPTCHA image.",
+    emojis: ["reflect"]
   }
   
 
