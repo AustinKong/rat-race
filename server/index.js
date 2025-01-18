@@ -16,7 +16,6 @@ const db = new sqlite3.Database('../database/database.db', (err) => {
 
 // Example API endpoint
 app.get('/api/example', (req, res) => {
-  res.status(100).json({ test: "hello world"});
   db.all('SELECT * FROM example_table', [], (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
     else res.json(rows);
