@@ -1,38 +1,79 @@
-.App {
+.all {
+  background-color: #ffc579;
+}
+
+.title {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container for the three divs */
+.container {
+  display: flex;                 /* Use Flexbox */
+  justify-content: flex-start;   /* Align items to the left */
+  align-items: flex-start;       /* Align items to the top */
+  height: 100vh;                 /* Full viewport height */
+  padding: 0;                    /* Remove padding */
+  gap: 20px;                     /* Space between left and center */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Individual div styles */
+.left {
+  width: 500px;                  /* Set width */
+  height: 90%;                   /* Set height */
+  display: flex;                 /* Center content inside the div */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: #007bff;     /* Background color */
+  color: white;                  /* Text color */
+  font-size: 16px;               /* Font size */
+  border-radius: 8px;            /* Rounded corners */
+}
+
+.right {
+  flex: 1;                       /* Expand to fill remaining width */
+  height: 90%;                   /* Set height */
+  display: flex;                 /* Center content inside the div */
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;     /* Background color */
+  color: white;                  /* Text color */
+  font-size: 16px;               /* Font size */
+  border-radius: 8px;            /* Rounded corners */
+}
+
+/* Parent container for the white box */
+.center {
+  width: auto;                   /* Adjust width dynamically */
+  max-width: 800px;              /* Set maximum width */
+  height: auto;                  /* Adjust height dynamically */
+  display: flex;                 /* Use Flexbox */
+  justify-content: flex-start;   /* Stick to the left */
+  align-items: flex-start;       /* Align to the top */
   color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 10px;                 /* Maintain some padding */
 }
 
-.App-link {
-  color: #61dafb;
+/* Modal-like Content for Center Div */
+.center-content {
+  width: 780px;                  /* Fixed width for the white box */
+  padding: 20px;                 /* Padding for inner spacing */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+  margin: 0;                     /* Remove margin to avoid gaps */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Text Area inside center-content */
+.text-area {
+  width: 100%;                   /* Full width */
+  height: 100px;
+  margin: 10px 0;                /* Add margin for spacing */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
 }
