@@ -7,10 +7,8 @@
 }
 */
 
-  
-
 const rules = [
-  // MUST BE FIRST QUESTION
+// MUST BE FIRST QUESTION
   {
     id: 1,
     type: "intro",
@@ -221,8 +219,13 @@ const rules = [
     difficulty: 2,
     description: "Your post must mention the founding father of Singapore.",
     words: ["lee kuan yew"]
+<<<<<<< Updated upstream
   }, 
   
+=======
+  },
+
+>>>>>>> Stashed changes
   {
     id: 116,
     type: "wordInclusion",
@@ -291,10 +294,7 @@ const rules = [
   },  
 
 
-
-
-
-
+  
   {
     id: 201,
     type: "letterInclusion",
@@ -310,6 +310,7 @@ const rules = [
   },
   {
     id: 203,
+<<<<<<< Updated upstream
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must mention South Africa's first democratically elected president ",
@@ -339,6 +340,15 @@ const rules = [
     word: ["motivation"]
   }, 
   
+=======
+    type: "wordExclusion",
+    difficulty: 3,
+    description: "Your post must not include numbers 3, 4, 7 and 9.",
+    words: ["3", "4", "7", "9"]
+  }
+
+
+>>>>>>> Stashed changes
 
 
 
