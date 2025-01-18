@@ -146,7 +146,6 @@ html, body {
 }
 
 .ruleBox {
-  border: 1px solid #4CAF50;   /* Add a green border */
   border-radius: 8px;          /* Rounded corners */
   overflow: hidden;            /* Prevent content overflow */
   font-family: Arial, sans-serif;
@@ -155,24 +154,26 @@ html, body {
 
 /* Header styling */
 .ruleBoxHeader {
-  background-color: #a8e6a8;   /* Slightly darker green */
   color: #4CAF50;              /* Green text color */
-  font-size: 16px;
   font-weight: bold;
   padding: 10px;
 }
 
 /* Description styling */
 .ruleBoxDescription {
-  background-color: #dfffd6;   /* Light green background */
   color: #000;                 /* Black text color */
   font-size: 14px;
   padding: 10px;
 }
 
 .right {
+  padding: 16px 0;
   width: 25%;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   font-size: 16px;               /* Font size */
   border-radius: 8px;            /* Rounded corners */
   -webkit-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
@@ -254,4 +255,8 @@ html, body {
 
 .post-button:hover {
   background-color: #0056b3;
+}
+
+.right img {
+  width: 90%;
 }

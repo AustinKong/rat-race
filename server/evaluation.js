@@ -6,7 +6,7 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 /* ------------------------------------------------------------------------ */
 
@@ -76,29 +76,31 @@ async function evaluateInput(input, rules) {
 
   // Checks for challenge rules
   rules.forEach(rule => {
-    let isValid;
-    switch (rule.type) {
-      case "intro":
-        isValid = validateIntro(input, rule);
-        break;
-      case "wordInclusion":
-        isValid = validateWordInclusion(input, rule);
-        break;
-      case "sentenceInclusion":
-        isValid = validateSentenceInclusion(input, rule);
-        break;
-      case "letterInclusion":
-        isValid = validateAllLetterInclusion(input, rule);
-        break;
-      case "palindromeInclusion":
-        isValid = validatePalindromInclusion(input, rule);
-      default:
-        isValid = false;
+    if (rule) {
+      let isValid;
+      switch (rule.type) {
+        case "intro":
+          isValid = validateIntro(input, rule);
+          break;
+        case "wordInclusion":
+          isValid = validateWordInclusion(input, rule);
+          break;
+        case "sentenceInclusion":
+          isValid = validateSentenceInclusion(input, rule);
+          break;
+        case "letterInclusion":
+          isValid = validateAllLetterInclusion(input, rule);
+          break;
+        case "palindromeInclusion":
+          isValid = validatePalindromInclusion(input, rule);
+        default:
+          isValid = true;
+      }
+      results.push({
+        rule,
+        valid: isValid
+      })
     }
-    results.push({
-      rule,
-      valid: isValid
-    })
   })
 
   // Keep only needed data

@@ -10,13 +10,25 @@ import { RiMessage2Line } from 'react-icons/ri'; // Messaging icon
 import { IoNotificationsOutline } from 'react-icons/io5'; // Notifications icon
 
 import Leaderboard from './leaderboard/Leaderboard';
-import rulesGif from './gameGifs/rules.gif';
+import rulesGif from './rules.gif';
+import cook from './cook.gif';
 
 const BACKEND_URL = "http://localhost:3000/api/";
 
 function App() {
   const [text, setText] = useState("");
-  const [rules, setRules] = useState([]);
+  const [rules, setRules] = useState([
+    {
+      type: 'grammarCheck',
+      valid: false,
+      description: 'Checks whether grammar is valid.'
+    },
+    {
+      type: 'contextCheck',
+      valid: false,
+      description: 'Checks whether your text fits in the context of LinkedIn post.'
+    }
+  ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
 
@@ -32,7 +44,7 @@ function App() {
     event.preventDefault();
     axios.post(`${BACKEND_URL}evaluate`, {
       text: text,
-      rules: rules.map(r => r.id)
+      rules: rules.filter(r => r.id !== null).map(r => r.id)
     })
       .then(result => {
         setHealth(health - result.data.rules.filter(rule => !rule.valid).length);
@@ -55,7 +67,7 @@ function App() {
       .catch(error => console.log(error));
   }
 
-  if (health === 0) {
+  if (health <= 0) {
     return (
       <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
     )
@@ -104,11 +116,19 @@ function App() {
       <div className="container">
         <div className="left">
           {rules.map((rule, index) => (
-            <div className="ruleBox" key={index}>
-              <div className="ruleBoxHeader">
+            <div className="ruleBox" key={index}
+              style={{
+                border: rule.valid ? '1px solid #4CAF50' : '1px solid #AF4A50'
+              }}>
+              <div className="ruleBoxHeader" style={{
+                backgroundColor: rule.valid ? '#dfffd6' : '#ffd6df',
+                color: rule.valid ? '#4CAF50' : '#AF4A50'
+              }}>
                 Rule {index + 1}
               </div>
-              <div className="ruleBoxDescription">
+              <div className="ruleBoxDescription" style={{
+                backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
+              }}>
                 {rule.description}
               </div>
             </div>
@@ -146,6 +166,7 @@ function App() {
         </div>
         <div className="right">
           <img src={rulesGif} />
+          <img src={cook} />
         </div>
       </div>
     </div>
