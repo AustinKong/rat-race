@@ -32,8 +32,8 @@ async function checkContext(text) {
   });
 
   const result = await chatSession.sendMessage(text);
-  console.log(text, " ran thru the model gives result ", result);
-  return result;
+  console.log(text, " ran thru the model gives result ", result.response.text());
+  return result.response.text();
 }
 
 /* ------------------------------------------------------------------------ */
@@ -61,10 +61,9 @@ async function evaluateInput(input, rules) {
   const matches = await checkGrammar(input);
   results.push({ 
     rule: { type: "grammarCheck", description: "Checks whether grammar is valid." },
-    valid: matches.length > 0
+    valid: matches.length === 0
   });
 
-  console.log(rules)
   // Checks for challenge rules
   rules.forEach(rule => {
     let isValid;
@@ -82,7 +81,7 @@ async function evaluateInput(input, rules) {
   })
 
   // Uses Gemini to check if the text fits in the context of a Linkedin post
-  const contextCheckResult = await checkContext(input);
+  const contextCheckResult = (await checkContext(input)).trim();
   results.push({
     rule: { type: "contextCheck", description: "Checks whether your text fits in the context of LinkedIn post." },
     valid: contextCheckResult === "valid"

@@ -4,6 +4,29 @@ import './App.css';
 
 function App() {
   const [text, setText] = useState("");
+  const [rules, setRules] = useState([
+    {
+      type: "wordInclusion",
+      difficult: 1,
+      description: "Word inclusion test 1",
+      valid: false
+    },
+    {
+      type: "wordInclusion",
+      difficult: 2,
+      description: "Word inclusion test 2",
+    },
+    {
+      type: "wordInclusion",
+      difficult: 2,
+      description: "Word inclusion test 2",
+    },
+    {
+      type: "wordInclusion",
+      difficult: 3,
+      description: "Word inclusion test 3",
+    }
+  ]); // Some dummy rules for now
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -14,7 +37,7 @@ function App() {
     axios.post("http://localhost:3000/api/evaluate", {
       text: text,
       rules: [1] // Use rule 1 for now
-    }).then(result => console.log(result))
+    }).then(result => console.log(result.data))
     .catch(error => console.log(error))
   }
 
@@ -24,7 +47,12 @@ function App() {
   
       <div className="container">
         <div className="left">
-          left
+          {rules.map((rule, index) => (
+            <div className="ruleBox" key={index}>
+              Difficulty: {rule.difficult} <br/>
+              Description: {rule.description}
+            </div>
+          ))}
         </div>
   
         <div className="center">
