@@ -219,13 +219,7 @@ const rules = [
     difficulty: 2,
     description: "Your post must mention the founding father of Singapore.",
     words: ["lee kuan yew"]
-<<<<<<< Updated upstream
   }, 
-  
-=======
-  },
-
->>>>>>> Stashed changes
   {
     id: 116,
     type: "wordInclusion",
@@ -310,7 +304,6 @@ const rules = [
   },
   {
     id: 203,
-<<<<<<< Updated upstream
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must mention South Africa's first democratically elected president ",
@@ -339,20 +332,12 @@ const rules = [
     hint: "It's a russian word.",
     word: ["motivation"]
   }, 
-  
-=======
+  {
     type: "wordExclusion",
     difficulty: 3,
     description: "Your post must not include numbers 3, 4, 7 and 9.",
     words: ["3", "4", "7", "9"]
   }
-
-
->>>>>>> Stashed changes
-
-
-
-
 ];
 
 module.exports = { rules };
