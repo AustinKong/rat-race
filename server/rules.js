@@ -306,23 +306,23 @@ const rules = [
     id: 203,
     type: "wordInclusion",
     difficulty: 3,
-    description: "Your post must mention South Africa's first democratically elected president ",
+    description: "Your post must mention South Africa's first democratically elected president.",
     words: ["nelson mandela"]
   },
   {
     id: 204,
     type: "math",
     difficulty: 3,
-    description: "Add the constant number of this differentation question - d/dx(3x^2)",
-    number: [6]
+    description: "Your post must include the coefficient of x of this differentiation question - d/dx(17x^2 - 11x^2 + 17x - 5x + 9)",
+    number: 12
   },
 
   {
     id: 205,
     type: "math",
     difficulty: 3,
-    description: "Add the constant number of this differentation question - d/dx(3x^2)",
-    number: [6]
+    description: "Your post must include the constant of this differentiation question - d/dx(27x^4 + 8x - 5x^3 + 3 + 3x - 3x^2)",
+    number: 11
   }, 
   {
     id: 206,
@@ -333,11 +333,62 @@ const rules = [
     word: ["motivation"]
   }, 
   {
+    id: 207,
     type: "wordExclusion",
     difficulty: 3,
     description: "Your post must not include numbers 3, 4, 7 and 9.",
     words: ["3", "4", "7", "9"]
+  },
+  {
+    id: 208,
+    type: "wordExclusion",
+    difficulty: 3,
+    description: "Your post must not include words 'mindset', 'always', 'very', 'shared'.",
+    words: ["mindset", "always", "very", "shared"]
+  },
+  {
+    id: 209,
+    type: "mathValidation",
+    difficulty: 3,
+    description: "Your post must have all numbers sum up to the number of years since NUS was first established.",
+    number: 1980
+  },
+  {
+    id: 210,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the name of the philanthropist that paid for Chadwick Boseman's summer theatre program at the University of Oxford.",
+    words: ["denzel washington"]
+  },
+  {
+    id: 211,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the name of the philanthropist that paid for Chadwick Boseman's summer theatre program at the University of Oxford.",
+    words: ["denzel washington"]
+  },
+  {
+    id: 212,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "\"I think the greatest way to win the rat race is to give a false sense of our weaknesses and strengths\". Your post must include a quote from the book titled 'The Art of War' that supports this argument.",
+    words: ["appear weak when you are strong, and strong when you are weak"]
+  },
+  {
+    id: 213,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
+    words: ["richard branson"]
+  },
+  {
+    id: 214,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
+    words: ["richard branson"]
   }
+
 ];
 
 module.exports = { rules };
