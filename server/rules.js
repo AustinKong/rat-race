@@ -14,7 +14,7 @@ const rules = [
     type: "wordInclusion",
     difficulty: 1,
     description: "Create a sentence with at least one of these words - \"teamwork\", \"communication\", \"synergy\".",
-    words: [""]
+    words: ["teamwork"]
   },
   {
     id: 2,
