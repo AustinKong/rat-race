@@ -1,18 +1,21 @@
-const { splitWordsAndPunctuation, lowercaseAll, splitIntoSentences, countCommonEntries, isPalindrome } = require('./utils');
+const { splitWordsAndPunctuation, lowercaseAll, splitIntoSentences, countCommonEntries, isPalindrome, splitWordsWithoutPunctuation } = require('./utils');
 
 // validation function should take in string
 // validation functions should return a boolean (pass/fail)
 
 // IMPORTANT: functions should handle the "cleaning" of sentences themselves using the sentenceSplitter functions
+function validateIntro(input, rule) {
+  const words = splitWordsWithoutPunctuation(lowercaseAll(input));
+  return words.length >= 10 && rule.words.some(word => words.includes(word));
+}
 
 function validateWordInclusion(input, rule) {
-  const words = splitWordsAndPunctuation(lowercaseAll(input));
-  return rule.words.some(word => words.includes(word));
+  return rule.words.some(word => lowercaseAll.includes(word));
 }
 
 function validateSentenceInclusion(input, rule) {
-  const wordsGroupedBySentences = splitIntoSentences(lowercaseAll(input)).map(sentence => sentence.splitWordsAndPunctuation(sentence));
-  return wordsGroupedBySentences.some(sentence => countCommonEntries(sentence, rule.words) >= 2);
+  const sentences = splitIntoSentences(lowercaseAll(input));
+  return rule.words.filter(word => sentences.some(sentence => sentence.includes(word))).length >= 2;
 }
 
 function validateAllLettersInclusion(input, rule) {
@@ -28,9 +31,9 @@ function validateAllLettersInclusion(input, rule) {
   return false;
 }
 
-function validatePalindromInclusion(input, rule) {
-  const words = input.splitIntoSentences(lowercaseAll(input));
+function validatePalindromeInclusion(input, rule) {
+  const words = input.splitWordsWithoutPunctuation(lowercaseAll(input));
   return words.some(word => isPalindrome(word));
 }
 
-module.exports = { validateWordInclusion, validateSentenceInclusion, validatePalindromInclusion };
+module.exports = { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion };

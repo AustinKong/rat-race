@@ -1,4 +1,4 @@
-const { validateWordInclusion, validateSentenceInclusion, validateAllLetterInclusion, validatePalindromInclusion } = require('./ruleHandlers');
+const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLetterInclusion, validatePalindromInclusion } = require('./ruleHandlers');
 const axios = require('axios');
 const {
   GoogleGenerativeAI,
@@ -78,6 +78,9 @@ async function evaluateInput(input, rules) {
   rules.forEach(rule => {
     let isValid;
     switch (rule.type) {
+      case "intro":
+        isValid = validateIntro(input, rule);
+        break;
       case "wordInclusion":
         isValid = validateWordInclusion(input, rule);
         break;
@@ -90,7 +93,7 @@ async function evaluateInput(input, rules) {
       case "palindromeInclusion":
         isValid = validatePalindromInclusion(input, rule);
       default:
-        isValid = true;
+        isValid = false;
     }
     results.push({
       rule,
