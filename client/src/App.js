@@ -46,7 +46,7 @@ function App() {
     .catch(error => console.log(error));
   }
 
-  if (true) {
+  if (false) {
     return (
       <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
     )
