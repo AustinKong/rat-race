@@ -5,11 +5,64 @@ html, body {
   height: 100%; /* Ensure full viewport height */
 }
 
-.all {
-  /* background-color: #ffc579; */
-  background-color: #f4f2ee;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 10vw 16px 10vw;
+}
+
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+  gap: 16px
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  gap: 16px
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  padding: 0 8px;
+  background-color: #f3f2ef;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .title-container {
@@ -19,15 +72,53 @@ html, body {
 }
 
 .title {
-  width:280px;
+  width: 240px;
   text-align: center;
-  font-size: 50px;
   margin: 0; /* Remove margin at the top */
   padding: 10px 0; /* Optional padding for spacing */
-  background-color: #0077B5;
+  background-color: #0a66c2;
   color: white;
-  border-radius: 10px;
-  
+  border-radius: 8px;
+}
+
+.all {
+  /* background-color: #ffc579; */
+  background-color: #f4f2ee;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: #0073b1;
+}
+
+.nav-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  background-color: #d32f2f;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 5px;
+  display: inline-block;
 }
 
 
@@ -36,31 +127,25 @@ html, body {
 /* Container for the three divs */
 .container {
   display: flex;                 /* Use Flexbox */
-  justify-content: flex-start;   /* Align items to the left */
-  align-items: flex-start;       /* Align items to the top */
-  height: 100vh;                 /* Full viewport height */
-  padding: 0;                    /* Remove padding */
-  gap: 20px;                     /* Space between left and center */
+  flex-direction: row;
+  width: 85vw;
+  margin: 24px auto;
+  gap: 12px;                     /* Space between left and center */
 }
 
 /* Individual div styles */
 .left {
-  width: 500px;                  /* Set width */
-  height: 90%;                   /* Set height */
+  width: 25%;                  /* Set width */
   display: flex;                 /* Flex container */
-  justify-content: flex-start;   /* Align children to the start horizontally */
-  align-items: flex-start;       /* Align children to the start vertically */
   flex-direction: column;        /* Arrange children in a column */
   gap: 8px;                      /* Add space between children */
   /* background-color: #007bff;      */
   color: white;                  /* Text color */
   font-size: 16px;               /* Font size */
   border-radius: 8px;            /* Rounded corners */
-  padding: 10px;                 /* Add padding inside the box */
 }
 
 .ruleBox {
-  width: 500px;                /* Set box width */
   border: 1px solid #4CAF50;   /* Add a green border */
   border-radius: 8px;          /* Rounded corners */
   overflow: hidden;            /* Prevent content overflow */
@@ -86,54 +171,41 @@ html, body {
 }
 
 .right {
-  flex: 1;                       /* Expand to fill remaining width */
-  height: 90%;                   /* Set height */
-  display: flex;                 /* Center content inside the div */
-  justify-content: center;
-  align-items: center;
-  background-color: #007bff;     /* Background color */
-  color: white;                  /* Text color */
+  width: 25%;
+  background-color: #ffffff;
   font-size: 16px;               /* Font size */
   border-radius: 8px;            /* Rounded corners */
+  -webkit-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  -moz-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
 }
 
 /* Parent container for the white box */
 .center {
-  width: auto;                   /* Adjust width dynamically */
-  max-width: 800px;              /* Set maximum width */
-  height: auto;                  /* Adjust height dynamically */
+  flex-grow: 1;
   display: flex;                 /* Use Flexbox */
-  justify-content: flex-start;   /* Stick to the left */
-  align-items: flex-start;       /* Align to the top */
-  color: white;
-  font-size: 16px;
+  flex-direction: column;
   border-radius: 8px;
-  padding: 10px;                 /* Maintain some padding */
-}
-
-/* Modal-like Content for Center Div */
-.center-content {
-  width: 780px;                  /* Fixed width for the white box */
-  padding: 20px;                 /* Padding for inner spacing */
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;                 /* Maintain some padding */
   background-color: white;
-  text-align: center;
-  margin: 0;                     /* Remove margin to avoid gaps */
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  -moz-box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
+  box-shadow: 2px 2px 16px 4px rgba(77,68,77,0.1);
 }
 
 .center-content-text {
-  display: flex;
   color: black;
+  text-align: center;
 }
 
 
 /* Container for Score and Health */
 .gameInfo {
   display: flex;          /* Arrange children in a row */
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;    /* Align vertically */
-  gap: 30px;              /* Add space between score and health */
 }
 
 /* Score styling */
@@ -165,6 +237,8 @@ html, body {
 .action-buttons {
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
+  align-items: center;
 }
 
 .post-button {
