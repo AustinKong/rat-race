@@ -226,7 +226,7 @@ html, body {
   width: 100%;
   display: flex;          /* Arrange children in a row */
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;    /* Align vertically */
 }
 

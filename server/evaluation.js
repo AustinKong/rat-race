@@ -86,7 +86,7 @@ async function evaluateInput(input, rules) {
           isValid = validateWordInclusion(input, rule);
           break;
         case "characterInclusion":
-          isInvalid = validateCharacters(input, rule);
+          isValid = validateCharacters(input, rule);
           break;
         case "sentenceInclusion":
           isValid = validateSentenceInclusion(input, rule);
