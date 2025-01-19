@@ -51,7 +51,7 @@ function validateNumber(input, rule) {
 
 // Sum
 function validateMath(input, rule) {
-  const numbers = input.match(/\d+/g) || []; // Match one or more digits, or default to an empty array
+  const numbers = input.match(/\d/g) || []; // Match one or more digits, or default to an empty array
   const totalSum = numbers.map(Number).reduce((sum, num) => sum + num, 0);
   return totalSum >= rule.number;
 }
