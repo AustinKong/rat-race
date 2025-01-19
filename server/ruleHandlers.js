@@ -10,7 +10,7 @@ function validateIntro(input, rule) {
 }
 
 function validateWordInclusion(input, rule) {
-  return rule.words.some(word => lowercaseAll(input).includes(word));
+  return rule.words.some(word => lowercaseAll(input).includes(lowercaseAll(word)));
 }
 
 function validateSentenceInclusion(input, rule) {

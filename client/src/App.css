@@ -123,6 +123,23 @@ html, body {
 
 
 
+.loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.499);
+  z-index: 100;
+}
+
+.loading img {
+  width: 180px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translateX(-50%) translateY(-50%);
+}
 
 /* Container for the three divs */
 .container {
@@ -203,9 +220,48 @@ html, body {
   text-align: center;
 }
 
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-text.pop {
+  animation: pop 0.3s ease-in-out;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.vibrate-text.vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
+
 
 /* Container for Score and Health */
 .gameInfo {
+  width: 100%;
   display: flex;          /* Arrange children in a row */
   flex-direction: row;
   justify-content: space-around;
@@ -214,16 +270,12 @@ html, body {
 
 /* Score styling */
 .gameScore {
-  font-size: 30px;
-  display: flex;
-  color: black;
+  font-size: 24px;
 }
 
 /* Health styling */
 .gameHealth {
-  font-size: 30px;
-  display: flex;
-  color: black;
+  font-size: 24px;
 }
 
 /* Text Area inside center-content */

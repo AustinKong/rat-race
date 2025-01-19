@@ -20,6 +20,7 @@ import imgCaptchaResilient from './gameImages/captcha-resilient.png';
 import Leaderboard from './leaderboard/Leaderboard';
 import rulesGif from './rules.gif';
 import cook from './cook.gif';
+import loadingGif from './loading.gif';
 
 const BACKEND_URL = "http://localhost:3000/api/";
 
@@ -36,16 +37,13 @@ function App() {
       valid: false,
       description: 'Checks whether your text fits in the context of LinkedIn post.'
     },
-    {
-      id: 124,
-      type: 'contextCheck',
-      valid: false,
-      description: 'Checks whether your text fits in the context of LinkedIn post.'
-    }
-
   ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [scoreIsPopping, setScoreIsPopping] = useState(false);
+  const [healthIsPopping, setHealthIsPopping] = useState(false);
+  const [rulesIsShaking, setRulesIsShaking] = useState(false);
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -53,14 +51,33 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     axios.post(`${BACKEND_URL}evaluate`, {
       text: text,
       rules: rules.filter(r => r.id !== null).map(r => r.id)
     })
       .then(result => {
-        setHealth(health - result.data.rules.filter(rule => !rule.valid).length);
+        setHealth(health - (result.data.rules.some(rule => !rule.valid) ? 1 : 0));
         setRules(result.data.rules);
         setScore(score + result.data.rules.filter(rule => rule.valid).length * 10);
+        setLoading(false);
+
+        if (result.data.rules.filter(rule => rule.valid).length > 0) {
+          setScoreIsPopping(true);
+          setTimeout(() => {
+            setScoreIsPopping(false);
+          }, 300);
+        }
+        if (result.data.rules.some(rule => !rule.valid)) {
+          setHealthIsPopping(true);
+          setTimeout(() => {
+            setHealthIsPopping(false);
+          }, 300);
+          setRulesIsShaking(true);
+          setTimeout(() => {
+            setRulesIsShaking(false);
+          }, 300);
+        }
       })
       .catch(error => console.log(error))
   }
@@ -76,12 +93,13 @@ function App() {
   }, [rules]);
 
   const getNewRule = () => {
+    setLoading(true);
     axios.post(`${BACKEND_URL}next`, {
       ruleCount: rules.length
     })
       .then(result => {
         setRules([...rules, result.data])
-        console.log([...rules, result.data])
+        setLoading(false);
       })
       .catch(error => console.log(error));
   }
@@ -109,12 +127,17 @@ function App() {
 
   if (health <= 0) {
     return (
-      <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
+      <Leaderboard score={score} text={text} />
     )
   }
 
   return (
     <div className="all">
+      {loading && (
+        <div className="loading">
+          <img src={loadingGif}/>
+        </div>
+      )}
       <div className="navbar">
         <div className="navbar-left">
           <h2 className="title">
@@ -155,9 +178,9 @@ function App() {
 
       <div className="container">
         <div className="leftContainer">
-          <div className="left">
+          <div className={`left`}>
             {rules.map((rule, index) => (
-              <div className="ruleBox" key={index}
+              <div className={`ruleBox vibrate-text ${(rulesIsShaking && !rule.valid) ? "vibrate" : ""}`} key={index}
                 style={{
                   border: rule.valid ? '1px solid #4CAF50' : '1px solid #AF4A50'
                 }}>
@@ -171,7 +194,7 @@ function App() {
                   backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
                 }}>
                   {rule.description}
-                  {<img src={getGameImage(rule)} style={{ width: "100%"}} />}
+                  {<img src={getGameImage(rule)} style={{ width: "100%", marginTop: "4px"}} />}
                 </div>
               </div>
             ))}
@@ -181,15 +204,15 @@ function App() {
         <div className="center">
           <h1 className="center-content-text">Hustling for the cheese🪤</h1>
           <div className="gameInfo">
-            <div className="gameScore">
+            <div className={`gameScore pop-text ${scoreIsPopping ? "pop" : ""}`}>
               <p>Score: {score}🧀</p>
             </div>
 
-            <div className="gameHealth">
+            <div className={`gameHealth pop-text ${healthIsPopping ? "pop" : ""}`}>
               Health:
               <span style={{ marginLeft: "10px" }}>
                 {Array.from({ length: health }, (_, index) => (
-                  <span key={index} style={{ fontSize: "20px", marginRight: "5px" }}>
+                  <span key={index} style={{ fontSize: "20px", marginRight: "2px" }}>
                     ❤️
                   </span>
                 ))}

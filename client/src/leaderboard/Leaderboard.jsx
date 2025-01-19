@@ -39,14 +39,11 @@ const Leaderboard = ({ score, text }) => {
     <div className="leaderboard">
       <h2>Leaderboard</h2>
       <div className="horizontal-line" />
-      <ul>
+      <ul className='leaderboard-list'>
         {leaderboard.map((user, index) => {
           return (
             <li className="leaderboard-entry" key={index}>
               <div className="rank">{index + 1}</div>
-              <div className="avatar">
-                <img />
-              </div>
               <div className="user-info">
                 <h4>{user.username}</h4>
                 <p>{user.score} points</p>

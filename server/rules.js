@@ -50,8 +50,8 @@ const rules = [
     id: 6,
     type: "wordInclusion",
     difficulty: 1,
-    description: "Your posts must include the phrase - \"I couldn’t have done without\"",
-    words: ["i couldn’t have done without"]
+    description: "Your posts must include the phrase - \"I couldn't have done without\"",
+    words: ["i couldn't have done without"]
   },
   {
     id: 7,
