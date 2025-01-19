@@ -350,7 +350,7 @@ const rules = [
     id: 119,
     type: "wordInclusion",
     difficulty: 2,
-    description: "Your post must contain the anagram of 'hither'.",
+    description: "Your post must contain the unscrambled version of 'rihtev'.",
     words: ["thrive"]
 
   },
