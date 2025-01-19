@@ -453,7 +453,6 @@ const rules = [
     description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
     words: ["richard branson"]
   },
-  
   {
     id: 213,
     type: "wordInclusion",
@@ -474,18 +473,6 @@ const rules = [
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
     words: ["reflect"]
-  },
-  {
-    id: 216,
-    type: "mathValidation",
-    difficulty: 3,
-    description: "Your post must have a total sum divisible by 5 when adding each digit in each post.",
-  },
-  {
-    id: 220,
-    type: "mathValidation",
-    difficulty: 3,
-    description: "Your post must have a total sum divisible by 2 when adding each digit in each post.",
   },
   {
     id: 221,

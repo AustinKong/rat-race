@@ -13,6 +13,10 @@ function validateWordInclusion(input, rule) {
   return rule.words.some(word => lowercaseAll(input).includes(lowercaseAll(word)));
 }
 
+function validateWordExclusion(input, rule) {
+  return !rule.words.some(word => lowercaseAll(input).includes(lowercaseAll(word)));
+}
+
 function validateSentenceInclusion(input, rule) {
   const sentences = splitIntoSentences(lowercaseAll(input));
   return rule.words.filter(word => sentences.some(sentence => sentence.includes(word))).length >= 2;
@@ -52,4 +56,4 @@ function validateMath(input, rule) {
   return totalSum >= rule.number;
 }
 
-module.exports = { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath };
+module.exports = { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath, validateWordExclusion };
