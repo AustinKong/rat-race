@@ -38,7 +38,7 @@ function App() {
       description: 'Checks whether your text fits in the context of LinkedIn post.'
     },
   ]);
-  const [health, setHealth] = useState(5);
+  const [health, setHealth] = useState(8);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [scoreIsPopping, setScoreIsPopping] = useState(false);
