@@ -41,6 +41,9 @@ function App() {
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [scoreIsPopping, setScoreIsPopping] = useState(false);
+  const [healthIsPopping, setHealthIsPopping] = useState(false);
+  const [rulesIsShaking, setRulesIsShaking] = useState(false);
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -58,6 +61,23 @@ function App() {
         setRules(result.data.rules);
         setScore(score + result.data.rules.filter(rule => rule.valid).length * 10);
         setLoading(false);
+
+        if (result.data.rules.filter(rule => rule.valid).length > 0) {
+          setScoreIsPopping(true);
+          setTimeout(() => {
+            setScoreIsPopping(false);
+          }, 300);
+        }
+        if (result.data.rules.some(rule => !rule.valid)) {
+          setHealthIsPopping(true);
+          setTimeout(() => {
+            setHealthIsPopping(false);
+          }, 300);
+          setRulesIsShaking(true);
+          setTimeout(() => {
+            setRulesIsShaking(false);
+          }, 300);
+        }
       })
       .catch(error => console.log(error))
   }
@@ -158,9 +178,9 @@ function App() {
 
       <div className="container">
         <div className="leftContainer">
-          <div className="left">
+          <div className={`left`}>
             {rules.map((rule, index) => (
-              <div className="ruleBox" key={index}
+              <div className={`ruleBox vibrate-text ${(rulesIsShaking && !rule.valid) ? "vibrate" : ""}`} key={index}
                 style={{
                   border: rule.valid ? '1px solid #4CAF50' : '1px solid #AF4A50'
                 }}>
@@ -184,11 +204,11 @@ function App() {
         <div className="center">
           <h1 className="center-content-text">Hustling for the cheese🪤</h1>
           <div className="gameInfo">
-            <div className="gameScore">
+            <div className={`gameScore pop-text ${scoreIsPopping ? "pop" : ""}`}>
               <p>Score: {score}🧀</p>
             </div>
 
-            <div className="gameHealth">
+            <div className={`gameHealth pop-text ${healthIsPopping ? "pop" : ""}`}>
               Health:
               <span style={{ marginLeft: "10px" }}>
                 {Array.from({ length: health }, (_, index) => (

@@ -220,6 +220,44 @@ html, body {
   text-align: center;
 }
 
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-text.pop {
+  animation: pop 0.3s ease-in-out;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.vibrate-text.vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
+
 
 /* Container for Score and Health */
 .gameInfo {
