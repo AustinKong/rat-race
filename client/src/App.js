@@ -37,13 +37,6 @@ function App() {
       valid: false,
       description: 'Checks whether your text fits in the context of LinkedIn post.'
     },
-    {
-      id: 124,
-      type: 'contextCheck',
-      valid: false,
-      description: 'Checks whether your text fits in the context of LinkedIn post.'
-    }
-
   ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
@@ -181,7 +174,7 @@ function App() {
                   backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
                 }}>
                   {rule.description}
-                  {<img src={getGameImage(rule)} style={{ width: "100%"}} />}
+                  {<img src={getGameImage(rule)} style={{ width: "100%", marginTop: "4px"}} />}
                 </div>
               </div>
             ))}
