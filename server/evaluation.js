@@ -6,7 +6,7 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 /* ------------------------------------------------------------------------ */
 

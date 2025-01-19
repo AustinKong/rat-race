@@ -295,52 +295,79 @@ const rules = [
     difficulty: 2,
     description: "Your post must contain the english word of the foreign word 'líder'",
     hint: "It's a portuguese word.",
-    word: ["leader"]
+    words: ["leader"]
   }, 
   {
     id: 124,
     type: "wordInclusion",
     difficulty: 2,
     description: "Your post must contain the word provided in this captcha.",
-    word: ["resilient"]
+    words: ["resilient"]
   },
   {
     id: 125,
     type: "wordInclusion",
     difficulty: 2,
     description: "Your post should include the food 'lo hei'.",
-    word: ["lo hei"]
+    words: ["lo hei"]
   }, 
   {
     id: 126,
     type: "wordInclusion",
     difficulty: 2,
     description: "Your post should include the food 'kueh lapis'.",
-    word: ["kueh lapis"]
-  },
-  {
-    id: 127,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include two of the number emojis - 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣",
-    emojis: ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+    words: ["kueh lapis"]
   },
   {
     id: 128,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include five 😁 emojis.",
-    emojis: ["😁"]
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include three consecutive 😁 emojis.",
+    words: ["😁😁😁"]
   },
   {
     id: 129,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include three 💡 emojis.",
-    emojis: ["💡"]
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include three consecutive 💡 emojis.",
+    words: ["💡💡💡"]
   },
-    
-
+  {
+    id: 130,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include one of these 🧠, 🤔, 😍 emojis.",
+    words: ["🧠", "🤔", "😍"]
+  },
+  {
+    id: 131,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include at least one 🌟 emoji.",
+    words: ["🌟"]
+  },
+  {
+    id: 132,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include exactly two 🥳 emojis in a row.",
+    words: ["🥳🥳"]
+  },
+  {
+    id: 133,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include the 🎉 emoji anywhere in the text.",
+    words: ["🎉"]
+  },
+  {
+    id: 134,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post must include the sequence 🔥🔥🔥🔥🔥.",
+    words: ["🔥🔥🔥🔥🔥"]
+  },
+  
   // DIFFICULTY - HARD
   {
     id: 201,
