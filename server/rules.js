@@ -8,6 +8,7 @@
 */
 
 const rules = [
+// DIFFICULTY - EASY
 // MUST BE FIRST QUESTION
   {
     id: 1,
@@ -114,6 +115,7 @@ const rules = [
   //   number: 26
   // },
 
+ // DIFFICULTY - MEDIUM
   {
     id: 101,
     type: "wordInclusion",
@@ -191,7 +193,6 @@ const rules = [
     description: "Your post must include one of the following companies - \"Grab\", \"DBS\", \"Singtel\".",
     words: ["grab", "dbs", "singtel"]
   },
-
   {
     id: 112,
     type: "wordInclusion",
@@ -287,8 +288,7 @@ const rules = [
     word: ["resilient"]
   },  
 
-
-  
+  // DIFFICULTY - HARD
   {
     id: 201,
     type: "letterInclusion",
@@ -316,7 +316,6 @@ const rules = [
     description: "Your post must include the coefficient of x of this differentiation question - d/dx(12x^2 - 5x + 9)",
     number: 5
   },
-
   {
     id: 205,
     type: "math",
@@ -348,10 +347,10 @@ const rules = [
   },
   {
     id: 209,
-    type: "mathValidation",
+    type: "wordInclusion",
     difficulty: 3,
-    description: "Your post must have all numbers sum up to the number of years since NUS was first established.",
-    number: 1980
+    description: "Your post must mention the number of years that have passed since the establishment of the National University of Singapore (NUS) in 2025.",
+    number: 120
   },
   {
     id: 210,
@@ -392,29 +391,35 @@ const rules = [
     id: 215,
     type: "emojiInclusion",
     difficulty: 3,
-    description: "Your post must include 3 💡 emojis.",
+    description: "Your post must include three 💡 emojis.",
     emojis: ["💡"]
   },
   {
-    id: 215,
+    id: 216,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
-    emojis: ["hustle"]
+    words: ["hustle"]
   },
   {
-    id: 215,
+    id: 217,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
-    emojis: ["insights"]
+    words: ["insights"]
   },
   {
-    id: 215,
+    id: 218,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
-    emojis: ["reflect"]
+    words: ["reflect"]
+  },
+  {
+    id: 219,
+    type: "mathValidation",
+    difficulty: 3,
+    description: "Your post must have a total sum divisible by 5 when adding each digit in each post.",
   }
   
 
