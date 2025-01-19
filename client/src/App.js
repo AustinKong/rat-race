@@ -10,11 +10,11 @@ import { RiMessage2Line } from 'react-icons/ri'; // Messaging icon
 import { IoNotificationsOutline } from 'react-icons/io5'; // Notifications icon
 
 import imgMath204 from './gameImages/Math204.jpg';
-import imgMath205 from './gameImages/Math05.jpg';
+import imgMath205 from './gameImages/Math205.jpg';
 import imgCaptchaHustle from './gameImages/captcha-hustle.jpg';
 import imgCaptchaInsights from './gameImages/captcha-insights.jpg';
 import imgCaptchaReflect from './gameImages/captcha-reflect.jpg';
-import imgCaptchaResilient from './gameImages/captcha-resilient.jpg';
+import imgCaptchaResilient from './gameImages/captcha-resilient.png';
 
 
 import Leaderboard from './leaderboard/Leaderboard';
@@ -35,7 +35,14 @@ function App() {
       type: 'contextCheck',
       valid: false,
       description: 'Checks whether your text fits in the context of LinkedIn post.'
+    },
+    {
+      id: 124,
+      type: 'contextCheck',
+      valid: false,
+      description: 'Checks whether your text fits in the context of LinkedIn post.'
     }
+
   ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
