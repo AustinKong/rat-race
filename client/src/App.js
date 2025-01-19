@@ -30,7 +30,7 @@ function App() {
     {
       type: 'grammarCheck',
       valid: false,
-      description: 'Checks whether grammar is valid.'
+      description: 'Checks whether grammar is acceptable.'
     },
     {
       type: 'contextCheck',

@@ -62,7 +62,7 @@ async function evaluateInput(input, rules) {
     // Checks for number of grammar issues
     const matches = await checkGrammar(input);
     results.push({ 
-      rule: { type: "grammarCheck", description: "Checks whether grammar is valid." },
+      rule: { type: "grammarCheck", description: "Checks whether grammar is acceptable." },
       valid: matches.length <= 1
     });
 
