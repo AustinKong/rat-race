@@ -9,7 +9,13 @@ import { BsBriefcase } from 'react-icons/bs'; // Jobs icon
 import { RiMessage2Line } from 'react-icons/ri'; // Messaging icon
 import { IoNotificationsOutline } from 'react-icons/io5'; // Notifications icon
 
-import img204 from './gameImages/204.jpg';
+import imgMath204 from './gameImages/Math204.jpg';
+import imgMath205 from './gameImages/Math205.jpg';
+import imgCaptchaHustle from './gameImages/captcha-hustle.jpg';
+import imgCaptchaInsights from './gameImages/captcha-insights.jpg';
+import imgCaptchaReflect from './gameImages/captcha-reflect.jpg';
+import imgCaptchaResilient from './gameImages/captcha-resilient.png';
+
 
 import Leaderboard from './leaderboard/Leaderboard';
 import rulesGif from './rules.gif';
@@ -30,7 +36,14 @@ function App() {
       type: 'contextCheck',
       valid: false,
       description: 'Checks whether your text fits in the context of LinkedIn post.'
+    },
+    {
+      id: 124,
+      type: 'contextCheck',
+      valid: false,
+      description: 'Checks whether your text fits in the context of LinkedIn post.'
     }
+
   ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
@@ -81,8 +94,18 @@ function App() {
   const getGameImage = (rule) => {
     if (rule) {
       switch (rule.id) {
+        case 124:
+          return imgCaptchaResilient;
         case 204:
-          return img204;
+          return imgMath204;
+        case 205:
+          return imgMath205;
+        case 213:
+          return imgCaptchaHustle;
+        case 214:
+          return imgCaptchaInsights;
+        case 215:
+          return imgCaptchaReflect;                        
         default:
           return null;
       }

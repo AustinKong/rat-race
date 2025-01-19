@@ -94,6 +94,13 @@ const rules = [
     description: "Your post must include numbers adding up to at least 15.",
     number: 37
   },
+  {
+    id: 13,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Your post must contain letters 'a', 'e', 'i', 'o', 'u'.",
+    words: ["a", "e", "i", "o", "u"]
+  },
   // {
   //   id: ,
   //   type: "mathValidation",
@@ -198,8 +205,8 @@ const rules = [
     id: 113,
     type: "sentenceInclusion",
     difficulty: 2,
-    description: "Your post must mention at least 2 of the buzzwords in a single sentence - dynamic, scalable, innovation, resilient, open-minded, ambitious, productivity, impact, opportunity, unity, community, teamwork, network, strategic, equality, digital transformation.",
-    words: ["dynamic", "scalable", "innovation", "resilient", "open-minded", "ambitious", "productivity", "impact", "opportunity", "unity", "community", "teamwork", "network", "strategic", "equality", "digital transformation" ]
+    description: "Your post must mention at least 2 of the buzzwords in a single sentence - dynamic, scalable, innovation, open-minded, ambitious, productivity, impact, opportunity, unity, community, teamwork, network, strategic, equality, digital transformation.",
+    words: ["dynamic", "scalable", "innovation", "open-minded", "ambitious", "productivity", "impact", "opportunity", "unity", "community", "teamwork", "network", "strategic", "equality", "digital transformation" ]
   },
   {
     id: 114,
@@ -241,7 +248,7 @@ const rules = [
     id: 119,
     type: "wordInclusion",
     difficulty: 2,
-    description: "Your post must contain the anagram of 'hither'. ",
+    description: "Your post must contain the anagram of 'hither'.",
     words: ["thrive"]
 
   },
@@ -256,7 +263,7 @@ const rules = [
     id: 121,
     type: "wordInclusion",
     difficulty: 2,
-    description: "Your post must contain the anagram of 'orwngt'.",
+    description: "Your post must contain the unscrambled word of 'orhwgt'.",
     words: ["growth"]
   },
   {
@@ -280,7 +287,43 @@ const rules = [
     difficulty: 2,
     description: "Your post must contain the word provided in this captcha.",
     word: ["resilient"]
-  },  
+  },
+  {
+    id: 125,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post should include the food 'lo hei'.",
+    word: ["lo hei"]
+  }, 
+  {
+    id: 126,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Your post should include the food 'kueh lapis'.",
+    word: ["kueh lapis"]
+  },
+  {
+    id: 127,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include two of the number emojis - 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣",
+    emojis: ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+  },
+  {
+    id: 128,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include five 😁 emojis.",
+    emojis: ["😁"]
+  },
+  {
+    id: 129,
+    type: "emojiInclusion",
+    difficulty: 3,
+    description: "Your post must include three 💡 emojis.",
+    emojis: ["💡"]
+  },
+    
 
   // DIFFICULTY - HARD
   {
@@ -320,7 +363,7 @@ const rules = [
   {
     id: 206,
     type: "wordInclusion",
-    difficulty: 2,
+    difficulty: 3,
     description: "Your post must contain the english word of the foreign word 'motivatsiya'",
     hint: "It's a russian word.",
     word: ["motivation"]
@@ -367,56 +410,51 @@ const rules = [
     description: "Your post must include the name of the entrepreneur that dropped out of school when he was 16 due to severe dyslexia.",
     words: ["richard branson"]
   },
+  
   {
     id: 213,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include two of the number emojis - 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣",
-    emojis: ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
-  },
-  {
-    id: 214,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include five 😁 emojis.",
-    emojis: ["😁"]
-  },
-  {
-    id: 215,
-    type: "emojiInclusion",
-    difficulty: 3,
-    description: "Your post must include three 💡 emojis.",
-    emojis: ["💡"]
-  },
-  {
-    id: 216,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
     words: ["hustle"]
   },
   {
-    id: 217,
+    id: 214,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
     words: ["insights"]
   },
   {
-    id: 218,
+    id: 215,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the word in the CAPTCHA image.",
     words: ["reflect"]
   },
   {
-    id: 219,
+    id: 216,
     type: "mathValidation",
     difficulty: 3,
     description: "Your post must have a total sum divisible by 5 when adding each digit in each post.",
+  },
+  {
+    id: 220,
+    type: "mathValidation",
+    difficulty: 3,
+    description: "Your post must have a total sum divisible by 2 when adding each digit in each post.",
+  },
+  {
+    id: 221,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Your post must include the entrepreneur that re-invented Singapore’s local gaming industry.",
+    words: ["tan min liang"]
   }
-  
 
 ];
 
 module.exports = { rules };
+
+
+
