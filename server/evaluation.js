@@ -63,7 +63,7 @@ async function evaluateInput(input, rules) {
     const matches = await checkGrammar(input);
     results.push({ 
       rule: { type: "grammarCheck", description: "Checks whether grammar is valid." },
-      valid: matches.length === 0
+      valid: matches.length <= 1
     });
 
     // Uses Gemini to check if the text fits in the context of a Linkedin post
