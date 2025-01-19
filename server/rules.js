@@ -92,7 +92,7 @@ const rules = [
     type: "mathValidation",
     difficulty: 1,
     description: "Your post must include numbers adding up to at least 15.",
-    number: 37
+    number: 15
   },
   {
     id: 13,
@@ -122,13 +122,6 @@ const rules = [
     difficulty: 1,
     description: "Include the word 'algorithm' in a motivational sentence",
     words: ["algorithm"]
-  },
-  {
-    id: 17,
-    type: "wordInclusion",
-    difficulty: 1,
-    description: "",
-    words: [""]
   },
   {
     id: 18,
