@@ -116,6 +116,99 @@ const rules = [
     words: ["architecture", "accounting", "civil engineering", "energy", "financial services", "telecommunications", "technology", "mining", "oil and gas", "sports", "private equity", "music", "venture capital"]
 
   },
+  {
+    id: 16,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Include the word 'algorithm' in a motivational sentence",
+    words: ["algorithm"]
+  },
+  {
+    id: 17,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "",
+    words: [""]
+  },
+  {
+    id: 18,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Include a simple comparison operator in a sentence.",
+    words: [">", "<", "==", "!=", "<=", ">="]
+  },
+  {
+    id: 19,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Use a sports term like 'goal', 'home run', or 'slam dunk' in your post.",
+    words: ["goal", "home run", "slam dunk"]
+  },
+  {
+    id: 20,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Include the name of one of these sports (basketball, soccer, F1, marathon, water polo, tennis) and how it relates to resilience.",
+    words: ["basketball", "soccer", "F1", "marathon", "water polo", "tennis"]
+  },
+  {
+    id: 21,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Mention how Harry Potter inspired you to be a better person",
+    words: ["Harry Potter"]
+  },
+  {
+    id: 22,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Use a cooking term like 'stirring the pot' or 'adding spice' in a metaphor.",
+    words: ["stirring the pot", "adding spice"]
+  },
+  {
+    id: 23,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Use the term 'gravity' in a sentence about staying grounded.",
+    words: ["gravity"]
+  },
+  {
+    id: 24,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Use the words 'stars' or 'universe' in a motivational sentence.",
+    words: ["stars", "universe"]
+  },
+  {
+    id: 25,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Include one of the following animals in a sentence that signifies courage - tiger, lion, eagle, boar, horse.",
+    words: ["tiger", "lion", "eagle", "boar", "horse" ]
+  },
+  {
+    id: 26,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Include one of the following animals in a sentence that signifies teamwork - ants, elephants, wolves, bees, dolphins.",
+    words: ["ants", "elephants", "wolves", "bees", "dolphins"]
+  },
+  {
+    id: 27,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Use the phrase 'a breath of fresh air' in a motivational sentence.",
+    words: ["a breath of fresh air"]
+  },
+  {
+    id: 28,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Write about how Charlotte in Charlotte's Web inspired you to be a better person.",
+    words: ["charlotte"]
+  },
+
+
 
   // {
   //   id: ,
