@@ -65,7 +65,7 @@ const rules = [
     type: "characterInclusion",
     difficulty: 1,
     description: "Your post must include a special character.",
-    words: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "[", "]", ":", ";", "'", '"', "<", ">", ".", "?", "/", "|", "~", "`"]
+    characters: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "[", "]", ":", ";", "'", '"', "<", ">", ".", "?", "/", "|", "~", "`"]
   },
   {
     id: 9,
@@ -93,12 +93,6 @@ const rules = [
     difficulty: 1,
     description: "Your post must include numbers adding up to at least 15.",
     number: 37
-  },
-  {
-    id: 13,
-    type: "letterValidation",
-    difficulty: 1,
-    description: "Your sentence must start with an upper case letter.",
   },
   // {
   //   id: ,
@@ -311,14 +305,14 @@ const rules = [
   },
   {
     id: 204,
-    type: "math",
+    type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the coefficient of x of this differentiation question - d/dx(12x^2 - 5x + 9)",
     number: 5
   },
   {
     id: 205,
-    type: "math",
+    type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the constant of this differentiation question - d/dx(37x^3 - 20x^2 + 3x + 1)",
     number: 3

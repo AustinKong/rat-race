@@ -43,13 +43,13 @@ app.post('/api/next', (req, res) => {
   try {
     const data = req.body;
 
-    if (data.ruleCount === 0) {
+    if (data.ruleCount === 2) {
       // Base case
       res.status(200).json(rules.find(r => r.id === 1))
-    } else if (data.ruleCount <= 5) {
+    } else if (data.ruleCount <= 7) {
       // Easy
       res.status(200).json(randomInArray(rules.filter(r => r.difficulty === 1)))
-    } else if (data.ruleCount <= 10) {
+    } else if (data.ruleCount <= 12) {
       // Medium
       res.status(200).json(randomInArray(rules.filter(r => r.difficulty === 2)))
     } else {

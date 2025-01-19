@@ -10,7 +10,7 @@ function validateIntro(input, rule) {
 }
 
 function validateWordInclusion(input, rule) {
-  return rule.words.some(word => lowercaseAll.includes(word));
+  return rule.words.some(word => lowercaseAll(input).includes(word));
 }
 
 function validateSentenceInclusion(input, rule) {
@@ -36,4 +36,20 @@ function validatePalindromeInclusion(input, rule) {
   return words.some(word => isPalindrome(word));
 }
 
-module.exports = { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion };
+function validateCharacters(input, rule) {
+  return rule.characters.some(char => input.includes(char));
+}
+
+function validateNumber(input, rule) {
+  const numberRegex = /\d/; // Matches any digit (0-9)
+  return numberRegex.test(input);
+}
+
+// Sum
+function validateMath(input, rule) {
+  const numbers = input.match(/\d+/g) || []; // Match one or more digits, or default to an empty array
+  const totalSum = numbers.map(Number).reduce((sum, num) => sum + num, 0);
+  return totalSum >= rule.number;
+}
+
+module.exports = { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath };

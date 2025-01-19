@@ -9,6 +9,8 @@ import { BsBriefcase } from 'react-icons/bs'; // Jobs icon
 import { RiMessage2Line } from 'react-icons/ri'; // Messaging icon
 import { IoNotificationsOutline } from 'react-icons/io5'; // Notifications icon
 
+import img204 from './gameImages/204.jpg';
+
 import Leaderboard from './leaderboard/Leaderboard';
 import rulesGif from './rules.gif';
 import cook from './cook.gif';
@@ -32,10 +34,6 @@ function App() {
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
 
-  useEffect(() => {
-    getNewRule();
-  }, []);
-
   const handleChange = (event) => {
     setText(event.target.value);
   };
@@ -50,12 +48,19 @@ function App() {
         setHealth(health - result.data.rules.filter(rule => !rule.valid).length);
         setRules(result.data.rules);
         setScore(score + result.data.rules.filter(rule => rule.valid).length * 10);
-        if (!result.data.rules.some(rule => !rule.valid)) {
-          getNewRule();
-        }
       })
       .catch(error => console.log(error))
   }
+
+  useEffect(() => {
+    getNewRule();
+  }, []);
+
+  useEffect(() => {
+    if (!rules.some(rule => !rule.valid)) {
+      getNewRule();
+    }
+  }, [rules]);
 
   const getNewRule = () => {
     axios.post(`${BACKEND_URL}next`, {
@@ -63,8 +68,20 @@ function App() {
     })
       .then(result => {
         setRules([...rules, result.data])
+        console.log([...rules, result.data])
       })
       .catch(error => console.log(error));
+  }
+
+  const getGameImage = (rule) => {
+    if (rule) {
+      switch (rule.id) {
+        case 204:
+          return img204;
+        default:
+          return null;
+      }
+    }
   }
 
   if (health <= 0) {
@@ -114,25 +131,28 @@ function App() {
       </div>
 
       <div className="container">
-        <div className="left">
-          {rules.map((rule, index) => (
-            <div className="ruleBox" key={index}
-              style={{
-                border: rule.valid ? '1px solid #4CAF50' : '1px solid #AF4A50'
-              }}>
-              <div className="ruleBoxHeader" style={{
-                backgroundColor: rule.valid ? '#dfffd6' : '#ffd6df',
-                color: rule.valid ? '#4CAF50' : '#AF4A50'
-              }}>
-                Rule {index + 1}
+        <div className="leftContainer">
+          <div className="left">
+            {rules.map((rule, index) => (
+              <div className="ruleBox" key={index}
+                style={{
+                  border: rule.valid ? '1px solid #4CAF50' : '1px solid #AF4A50'
+                }}>
+                <div className="ruleBoxHeader" style={{
+                  backgroundColor: rule.valid ? '#dfffd6' : '#ffd6df',
+                  color: rule.valid ? '#4CAF50' : '#AF4A50'
+                }}>
+                  Rule {index + 1}
+                </div>
+                <div className="ruleBoxDescription" style={{
+                  backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
+                }}>
+                  {rule.description}
+                  {getGameImage(rule)}
+                </div>
               </div>
-              <div className="ruleBoxDescription" style={{
-                backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
-              }}>
-                {rule.description}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="center">

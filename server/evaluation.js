@@ -1,4 +1,4 @@
-const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLetterInclusion, validatePalindromInclusion } = require('./ruleHandlers');
+const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath } = require('./ruleHandlers');
 const axios = require('axios');
 const {
   GoogleGenerativeAI,
@@ -6,7 +6,7 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
-const DEV_MODE = false;
+const DEV_MODE = true;
 
 /* ------------------------------------------------------------------------ */
 
@@ -85,14 +85,24 @@ async function evaluateInput(input, rules) {
         case "wordInclusion":
           isValid = validateWordInclusion(input, rule);
           break;
+        case "characterInclusion":
+          isInvalid = validateCharacters(input, rule);
+          break;
         case "sentenceInclusion":
           isValid = validateSentenceInclusion(input, rule);
           break;
         case "letterInclusion":
-          isValid = validateAllLetterInclusion(input, rule);
+          isValid = validateAllLettersInclusion(input, rule);
           break;
         case "palindromeInclusion":
-          isValid = validatePalindromInclusion(input, rule);
+          isValid = validatePalindromeInclusion(input, rule);
+          break;
+        case "numberInclusion":
+          isValid = validateNumber(input, rule);
+          break;
+        case "mathValidation":
+          isValid = validateMath(input, rule);
+          break;
         default:
           isValid = true;
       }
