@@ -561,11 +561,18 @@ const rules = [
     words: ["reflect"]
   },
   {
-    id: 221,
+    id: 216,
     type: "wordInclusion",
     difficulty: 3,
     description: "Your post must include the entrepreneur that re-invented Singapore’s local gaming industry.",
     words: ["tan min liang"]
+  } ,
+  {
+    id: 217,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Include a hastag within your post - #grateful or #blessed.",
+    words: ["#grateful", "#blessed"]
   }
 
 ];
