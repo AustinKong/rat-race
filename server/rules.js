@@ -43,9 +43,9 @@ const rules = [
     id: 5,
     type: "wordInclusion",
     difficulty: 1,
-    description: "Your post must mention one of the past industries listed as follows - \"Aerospace\", \"Agriculture\", \"Automotive\", \"Banking\", \"Biotechnology\", \"Chemical\", \"Construction\", \"Civil Engineering\", \"Computing\", \"Defense\", \"Education\", \"Energy\", \"Entertainment\", \"Environmental Services\", \"Fashion\", \"Financial Services\", \"Food and Beverage\", \"Forestry\", \"Government\", \"Healthcare\", \"Hospitality\", \"Insurance\", \"Legal Services\", \"Logistics\", \"Manufacturing\", \"Maritime\", \"Marketing\", \"Media\", \"Mining\", \"Nonprofit\", \"Oil and Gas\", \"Pharmaceuticals\", \"Real Estate\", \"Renewable Energy\", \"Retail\", \"Shipping\", \"Sports\", \"Technology\", \"Telecommunications\", \"postiles\", \"Tourism\", \"Transportation\".",
-    words: ["aerospace", "agriculture", "automotive", "banking", "biotechnology", "chemical", "construction", "civil engineering", "computing", "defense", "education", "energy", "entertainment", "environmental services", "fashion", "financial services", "food and beverage", "forestry", "government", "healthcare", "hospitality", "insurance", "legal services", "logistics", "manufacturing", "maritime", "marketing", "media", "mining", "nonprofit", "oil and gas", "pharmaceuticals", "real estate", "renewable energy", "retail", "shipping", "sports", "technology", "telecommunications", "postiles", "tourism", "transportation"]
-  },
+    description: "Your post must mention one of the past industries listed as follows - \"Aerospace\", \"Agriculture\", \"Banking\", \"Chemical\", \"Computing\", \"Defense\", \"Education\", \"Entertainment\", \"Environmental Services\", \"Food and Beverage\", \"Forestry\", \"Government\", \"Insurance\", \"Logistics\", \"Manufacturing\", \"Marketing\", \"Media\", \"Pharmaceuticals\", \"Real Estate\", \"Retail\", \"Tourism\".",
+    words: ["aerospace", "agriculture", "banking", "chemical", "computing", "defense", "education", "entertainment", "environmental services", "food and beverage", "forestry", "government", "insurance", "logistics", "manufacturing", "marketing", "media", "pharmaceuticals", "real estate", "retail", "tourism"]
+  }, 
   {
     id: 6,
     type: "wordInclusion",
@@ -101,6 +101,22 @@ const rules = [
     description: "Your post must contain letters 'a', 'e', 'i', 'o', 'u'.",
     words: ["a", "e", "i", "o", "u"]
   },
+  {
+    id: 14,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Your post must mention one of the past industries listed as follows - \"Automotive\", \"Advertising\", \"Biotechnology\", \"Construction\", \"Exotic dancer\", \"Fashion\", \"Maritime\", \"Shipping\", \"Telecommunications\", \"Healthcare\",\"Legal services\", \"Non-profit\".",
+    words: ["automotive", "advertising", "biotechnology", "construction", "exotic dancer", "fashion", "maritime", "quantitative finance", "shipping", "telecommunications", "healthcare", "legal services", "non-profit"]
+  },
+  {
+    id: 15,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Your post must mention one of the past industries listed as follows -  \"Architecture\", \"Accounting\", \"Civil engineering\", \"Energy\", \"Financial services\", \"Telecommunications\", \"Technology\", \"Mining\", \"Oil and Gas\", \"Sports \", \"Private equity\", \"Music\", \"Venture Capital\".",
+    words: ["architecture", "accounting", "civil engineering", "energy", "financial services", "telecommunications", "technology", "mining", "oil and gas", "sports", "private equity", "music", "venture capital"]
+
+  },
+
   // {
   //   id: ,
   //   type: "mathValidation",
