@@ -579,7 +579,7 @@ const rules = [
     type: "wordInclusion",
     difficulty: 3,
     description: "Name-drop the artist whose ear was cut off.",
-    words: ["vincent van gogh"]
+    words: ["vincent van gogh", "van gogh"]
   },
   {
     id: 219,
@@ -593,7 +593,7 @@ const rules = [
     type: "wordInclusion",
     difficulty: 3,
     description: "Name-drop the famous musician who lost his hearing. Talk about how this individual taught you about perserverance.",
-    words: ["ludwig van beethoven"]
+    words: ["ludwig van beethoven", "beethoven"]
   },
   {
     id: 221,
@@ -614,7 +614,7 @@ const rules = [
     type: "wordInclusion",
     difficulty: 3,
     description: "Include the name of the famous scientist who tried to turn lead into gold. Relate it to your journey of turning failures into success.",
-    words: ["glenn seaborg"]
+    words: ["glenn seaborg", "glenn t. seaborg"]
   },
   {
     id: 224,
