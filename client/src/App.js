@@ -148,7 +148,7 @@ function App() {
                   backgroundColor: rule.valid ? '#a8e6a8' : '#e6a8a8'
                 }}>
                   {rule.description}
-                  {getGameImage(rule)}
+                  {<img src={getGameImage(rule)} />}
                 </div>
               </div>
             ))}
