@@ -1,4 +1,4 @@
-const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath } = require('./ruleHandlers');
+const { validateIntro, validateWordInclusion, validateSentenceInclusion, validateAllLettersInclusion, validatePalindromeInclusion, validateCharacters, validateNumber, validateMath, validateWordExclusion } = require('./ruleHandlers');
 const axios = require('axios');
 const {
   GoogleGenerativeAI,
@@ -6,7 +6,7 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 /* ------------------------------------------------------------------------ */
 
@@ -102,6 +102,9 @@ async function evaluateInput(input, rules) {
           break;
         case "mathValidation":
           isValid = validateMath(input, rule);
+          break;
+        case "wordExclusion":
+          isValid = validateWordExclusion(input, rule);
           break;
         default:
           isValid = true;

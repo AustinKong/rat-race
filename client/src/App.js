@@ -22,7 +22,7 @@ import rulesGif from './rules.gif';
 import cook from './cook.gif';
 import loadingGif from './loading.gif';
 
-const BACKEND_URL = "http://localhost:3000/api/";
+const BACKEND_URL = "http://localhost:3001/api/";
 
 function App() {
   const [text, setText] = useState("");

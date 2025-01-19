@@ -5,7 +5,7 @@ import ratDancing from './rat-dancing.gif';
 import ratSpinning from './rat-spinning.gif';
 import sadMouse from './sad-mouse.gif';
 
-const BACKEND_URL = "http://localhost:3000/api/";
+const BACKEND_URL = "http://localhost:3001/api/";
 
 const Leaderboard = ({ score, text }) => {
   const [leaderboard, setLeaderboard] = useState([]);
