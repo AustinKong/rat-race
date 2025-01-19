@@ -453,7 +453,7 @@ const rules = [
     description: "Your post must include the sequence 🔥🔥🔥🔥🔥.",
     words: ["🔥🔥🔥🔥🔥"]
   },
-  
+
   // DIFFICULTY - HARD
   {
     id: 201,
@@ -573,7 +573,57 @@ const rules = [
     difficulty: 3,
     description: "Include a hastag within your post - #grateful or #blessed.",
     words: ["#grateful", "#blessed"]
-  }
+  },
+  {
+    id: 218,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Name-drop the artist whose ear was cut off.",
+    words: ["vincent van gogh"]
+  },
+  {
+    id: 219,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Name-drop the individual who served as the British Prime minister twice and also received a Nobel Prize in Literature. Talk about how this individual inspired you.",
+    words: ["winston churchill"]
+  },
+  {
+    id: 220,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Name-drop the famous musician who lost his hearing. Talk about how this individual taught you about perserverance.",
+    words: ["ludwig van beethoven"]
+  },
+  {
+    id: 221,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Name-drop the famous musician who lost his hearing. Talk about how this individual taught you about perserverance.",
+    words: ["ludwig van beethoven"]
+  },
+  {
+    id: 222,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Include the name of the painting that has been stolen multiple times and have been recovered. Relate it to mystery of your life",
+    words: ["mona lisa"]
+  },
+  {
+    id: 223,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Include the name of the famous scientist who tried to turn lead into gold. Relate it to your journey of turning failures into success.",
+    words: ["glenn seaborg"]
+  },
+  {
+    id: 224,
+    type: "wordInclusion",
+    difficulty: 3,
+    description: "Include the name of the famous scientist who failed 1000 times before inventing the lightbulb. Relate it to perserverance in your life.",
+    words: ["thomas edison"]
+  },
+
 
 ];
 
