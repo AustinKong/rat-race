@@ -14,7 +14,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash-exp",
-  systemInstruction: "You are reviewing a linkedin post that will be posted, look through the reply and output a \"valid\" if you think this post makes sense in the context as a linkedin post, else output \"invalid\".",
+  systemInstruction: "You are reviewing a linkedin post that will be posted, look through the reply and output a \"valid\" if you think this post makes sense in the context as a linkedin post, else output \"invalid\". Do not be too strict.",
 });
 
 const generationConfig = {
