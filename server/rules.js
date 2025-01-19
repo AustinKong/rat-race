@@ -200,6 +200,13 @@ const rules = [
     description: "Write about how Charlotte in Charlotte's Web inspired you to be a better person.",
     words: ["charlotte"]
   },
+  {
+    id: 29,
+    type: "wordInclusion",
+    difficulty: 1,
+    description: "Your post should include the food 'cai fan'. ",
+    words: ["cai fan"]
+  },
 
 
 
@@ -453,6 +460,13 @@ const rules = [
     description: "Your post must include the sequence 🔥🔥🔥🔥🔥.",
     words: ["🔥🔥🔥🔥🔥"]
   },
+  {
+    id: 135,
+    type: "wordInclusion",
+    difficulty: 2,
+    description: "Name drop the person who dropped out of college, founded a multi-national techn company, and wears a signature black turtleneck.",
+    words: ["steve jobs"]
+  },
 
   // DIFFICULTY - HARD
   {
@@ -622,7 +636,7 @@ const rules = [
     difficulty: 3,
     description: "Include the name of the famous scientist who failed 1000 times before inventing the lightbulb. Relate it to perserverance in your life.",
     words: ["thomas edison"]
-  },
+  }
 
 
 ];
