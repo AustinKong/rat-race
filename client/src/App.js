@@ -14,6 +14,7 @@ import img204 from './gameImages/204.jpg';
 import Leaderboard from './leaderboard/Leaderboard';
 import rulesGif from './rules.gif';
 import cook from './cook.gif';
+import loadingGif from './loading.gif';
 
 const BACKEND_URL = "http://localhost:3000/api/";
 
@@ -33,6 +34,7 @@ function App() {
   ]);
   const [health, setHealth] = useState(5);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -40,14 +42,16 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     axios.post(`${BACKEND_URL}evaluate`, {
       text: text,
       rules: rules.filter(r => r.id !== null).map(r => r.id)
     })
       .then(result => {
-        setHealth(health - result.data.rules.filter(rule => !rule.valid).length);
+        setHealth(health - (result.data.rules.some(rule => !rule.valid) ? 1 : 0));
         setRules(result.data.rules);
         setScore(score + result.data.rules.filter(rule => rule.valid).length * 10);
+        setLoading(false);
       })
       .catch(error => console.log(error))
   }
@@ -63,12 +67,13 @@ function App() {
   }, [rules]);
 
   const getNewRule = () => {
+    setLoading(true);
     axios.post(`${BACKEND_URL}next`, {
       ruleCount: rules.length
     })
       .then(result => {
         setRules([...rules, result.data])
-        console.log([...rules, result.data])
+        setLoading(false);
       })
       .catch(error => console.log(error));
   }
@@ -86,12 +91,17 @@ function App() {
 
   if (health <= 0) {
     return (
-      <Leaderboard score={score} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque elit eu mi tempor, nec fermentum urna vulputate. Aenean nec rhoncus nulla. Donec vel rhoncus leo. Vestibulum volutpat efficitur ante nec pellentesque. Ut venenatis est sit amet ullamcorper congue. Cras fermentum consequat orci, sed consectetur felis sollicitudin id"} />
+      <Leaderboard score={score} text={text} />
     )
   }
 
   return (
     <div className="all">
+      {loading && (
+        <div className="loading">
+          <img src={loadingGif}/>
+        </div>
+      )}
       <div className="navbar">
         <div className="navbar-left">
           <h2 className="title">
@@ -166,7 +176,7 @@ function App() {
               Health:
               <span style={{ marginLeft: "10px" }}>
                 {Array.from({ length: health }, (_, index) => (
-                  <span key={index} style={{ fontSize: "20px", marginRight: "5px" }}>
+                  <span key={index} style={{ fontSize: "20px", marginRight: "2px" }}>
                     ❤️
                   </span>
                 ))}
