@@ -2,7 +2,7 @@
 A satirical social commentary on the toxic culture of over the top Linkedin posts. Built for Hack n Roll 2025.
 ## About
 <!--An image to show your project-->
-![Image](Image.png)
+![Image](image.jpg)
 ### Description
 This project was developed for Hack n Roll 2025, a 24 hour hackathon hosted by NUS Hackers.
 ### Technology
